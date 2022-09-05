@@ -7,13 +7,11 @@
 
 <script>
 import AvatarDropdown from './AvatarDropdown'
-import SelectLang from '@/components/SelectLang'
 
 export default {
   name: 'RightContent',
   components: {
-    AvatarDropdown,
-    SelectLang
+    AvatarDropdown
   },
   props: {
     prefixCls: {

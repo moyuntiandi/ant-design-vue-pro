@@ -5,7 +5,7 @@ export default {
   'user.login.password.placeholder': '密码: admin or ant.design',
   'user.login.message-invalid-credentials': '账户或密码错误（admin/ant.design）',
   'user.login.message-invalid-verification-code': '验证码错误',
-  'user.login.tab-login-credentials': '账户密码登录',
+  'user.login.tab-login-credentials': '账户密码登录111',
   'user.login.tab-login-mobile': '手机号登录',
   'user.login.mobile.placeholder': '手机号',
   'user.login.mobile.verification-code.placeholder': '验证码',
