@@ -1,6 +1,6 @@
 <template>
   <div>
-    404 page
+    字典管理
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 import Mock from 'mockjs2'
 import { builder, getQueryParameters } from '../util'
 
-const totalCount = 5701
+const totalCount = 101
 
 const serverList = (options) => {
   const parameters = getQueryParameters(options)

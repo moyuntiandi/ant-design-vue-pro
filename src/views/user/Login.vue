@@ -24,7 +24,7 @@
                 {rules: [{ required: true, message: $t('user.userName.required') }, { validator: handleUsernameOrEmail }], validateTrigger: 'change'}
               ]"
             >
-              <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+              <!-- <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/> -->
             </a-input>
           </a-form-item>
 
@@ -37,7 +37,7 @@
                 {rules: [{ required: true, message: $t('user.password.required') }], validateTrigger: 'blur'}
               ]"
             >
-              <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+              <!-- <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/> -->
             </a-input-password>
           </a-form-item>
         </a-tab-pane>
@@ -135,7 +135,7 @@ export default {
           loginParams[!state.loginType ? 'email' : 'username'] = values.username
           loginParams.password = md5(values.password)
           Login(loginParams)
-            .then((res) => this.loginSuccess(res))
+            .then((res) => this.loginSuccess(loginParams, res))
             .catch(err => this.requestFailed(err))
             .finally(() => {
               state.loginBtn = false
@@ -190,7 +190,7 @@ export default {
         this.stepCaptchaVisible = false
       })
     },
-    loginSuccess (res) {
+    loginSuccess (req, res) {
       console.log(res)
       // check res.homePage define, set $router.push name res.homePage
       // Why not enter onComplete
@@ -207,8 +207,8 @@ export default {
       // 延迟 1 秒显示欢迎信息
       setTimeout(() => {
         this.$notification.success({
-          message: '欢迎',
-          description: `${timeFix()}，欢迎回来`
+          message: `${timeFix()} ` + req.username,
+          description: '欢迎回来'
         })
       }, 1000)
       this.isLoginError = false

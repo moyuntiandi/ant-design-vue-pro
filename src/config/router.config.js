@@ -1,6 +1,11 @@
 // eslint-disable-next-line
 import { UserLayout, BasicLayout, BlankLayout } from '@/layouts'
 
+const RouteView = {
+  name: 'RouteView',
+  render: (h) => h('router-view')
+}
+
 export const asyncRouterMap = [
   {
     path: '/',
@@ -14,7 +19,53 @@ export const asyncRouterMap = [
         name: 'home',
         component: () => import('@/views/Home'),
         meta: { title: '主页', icon: 'home' }
-      }
+      },
+      {
+        path: '/demo',
+        name: 'demo',
+        component: RouteView,
+        meta: { title: '模板', icon: 'setting' },
+        children: [
+          {
+            path: '/demo',
+            name: 'demo',
+            component: () => import('@/views/demo'),
+            meta: { title: '参考模板', icon: 'user' }
+          }
+        ]
+      },
+      {
+              path: '/system',
+              name: 'system',
+              component: RouteView,
+              meta: { title: '系统管理', icon: 'setting' },
+              children: [
+                {
+                  path: '/system/user',
+                  name: 'user',
+                  component: () => import('@/views/system/user'),
+                  meta: { title: '用户管理', icon: 'user' }
+                },
+                {
+                  path: '/system/role',
+                  name: 'role',
+                  component: () => import('@/views/system/role'),
+                  meta: { title: '角色管理', icon: 'user' }
+                },
+                {
+                  path: '/system/res',
+                  name: 'res',
+                  component: () => import('@/views/system/res'),
+                  meta: { title: '资源管理', icon: 'user' }
+                },
+                {
+                  path: '/system/dict',
+                  name: 'dict',
+                  component: () => import('@/views/system/dict'),
+                  meta: { title: '字典管理', icon: 'user' }
+                }
+              ]
+            }
     ]
   },
 
